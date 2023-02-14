@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ddd
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Free Stylish Login Page Website Template | Smarteyeapps.com</title>
+
+    <link rel="shortcut icon" href="assets/images/fav.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container-fluid ">
+        <div class="container ">
+            <div class="row ">
+                @if(session()->has('success')
+                <div class="alert alert-success text-center" id="msg">
+                    {{ session()->get('success') }}
+                    </div>
+                    @elseif(session()->has('error'))
+                                <div class="alert alert-danger text-center" id="msg">
+                                {{ session()->get('error') }}
+                                </div>
+                    @endi
+                <div class="col-sm-10 login-box">
+                    <div class="row">
+                       <div class="col-lg-4 col-md-5 box-de">
+                           <div class="small-logo">
+                                <i class="fab fa-asymmetrik"></i> Style Login
+                            </div>
+                            <div class="ditk-inf sup-oi">
+                                <div class="ditk-inf">
+                                    <img src="assets/images/capital.jpg">
+                                    <h2 class="w-100"></h2>
+                                  
+                         
+                                
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-7 log-det">
+                           
+                    
+                            <div class="row">
+                               
+                                <p class="small-info">     <span class="login100-form-title">
+                                    <a href="" target="_blank">
+                                        <i class="fas fa-user"></i>
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="row">
+                             
+                            </div>
+
+                      
+                            <form class="login100-form flex-sb flex-w" id="" method="POST" action="{{ route('login.custom') }}">
+                                @csrf
+                            <div class="text-box-cont">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">
+                                        <i class="far fa-user"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control"   name="user" id="name" placeholder="Full Name" aria-label="Username" aria-describedby="basic-addon1">
+                                    @if ($errors->has('user'))
+                                    <span class="text-danger">{{ $errors->first('user') }}</span>
+                                   @endif
+                                </div>
+                                 <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="far fa-envelope"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Mot de passe " name="password" aria-label="passeword" aria-describedby="basic-addon1">
+                                    @if ($errors->has('pass'))
+                                    <span class="text-danger">{{ $errors->first('pass') }}</span>
+                                    @endif
+                                </div>
+                                 <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+                                    <select class="form-control input100" name="campaign" required>
+                                        <option selected value=""> -- Choisir la compagne --</option>
+                                        @isset($campaigns)
+                                        @foreach($campaigns as $camp)
+                                            <option value="{{$camp->campaign_id}}">{{$camp->campaign_id.' - '.$camp->campaign_name}}</option>
+                                        @endforeach
+                                        @endisset
+                                    </select>
+                                </div>
+                               
+                                <div class="input-group center sup mb-3">
+                                    <button class="btn btn-success btn-round">Se connecter</button>
+                                </div>    
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+
+</html>
